@@ -7,7 +7,7 @@ resources:
 - name: result
   type: git
   source:
-    uri: git@gist.github.com:dbc56fbd08f415fa52c784f4cd2e4bd3.git
+    uri: git@gist.github.com:bd8d06457628f94c7a8abc06925fd052.git
     private_key: {{github-private-key}}
     branch: master
 
@@ -25,3 +25,13 @@ jobs:
   - put: result
     params:
       repository: updated-result
+
+- name: job-show-result
+  public: true
+  plan:
+  - get: hello	
+  - get: result
+    trigger: true
+    passed: [ job-hello ]
+  - task: show-result
+    file: hello/show-result.yml
