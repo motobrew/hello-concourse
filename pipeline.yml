@@ -7,8 +7,9 @@ resources:
 - name: result
   type: git
   source:
-    uri: git@gist.github.com/making/dbc56fbd08f415fa52c784f4cd2e4bd3
+    uri: git@gist.github.com:dbc56fbd08f415fa52c784f4cd2e4bd3.git
     private_key: {{github-private-key}}
+    branch: master
 
 jobs: 
 - name: job-hello
